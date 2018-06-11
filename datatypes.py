@@ -23,3 +23,15 @@ products = [
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
+
+X = len(products)
+
+print("--------------\nTHERE ARE ", X ," PRODUCTS:\n--------------")
+
+def sort_by_name(p):
+        return p["name"]
+products = sorted(products, key=sort_by_name)
+
+for p in products:
+    priceusd = "(${0:.2f})".format(p["price"])
+    print("+ ",p["name"],priceusd)
