@@ -35,3 +35,26 @@ products = sorted(products, key=sort_by_name)
 for p in products:
     priceusd = "(${0:.2f})".format(p["price"])
     print("+ ",p["name"],priceusd)
+
+departments = []
+
+for p in products:
+    departments.append(p["department"])
+
+departments = set(departments)
+departments = list(departments)
+
+
+print("--------------\nTHERE ARE ", str(len(departments)) ," DEPARTMENTS:\n--------------")
+
+departments = sorted(departments)
+
+def products_in_dept(dept_name):
+    return [p for p in products if p["department"] == dept_name]
+
+for d in departments:
+    associated_prods = products_in_dept(d)
+    label = "Products"
+    if len(associated_prods) == 1:
+        label ="Product"
+    print("+ ",d.title()," (" ,str(len(associated_prods)),label,")")
